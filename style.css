@@ -145,6 +145,9 @@ html, body {
 
 .glass-panel-light .highlight { color: #2c5364; font-size: 1.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 .text-black { color: #1a1a1a !important; }
+.signature {
+  text-align: right !important;
+}
 
 /* راست چین قطعی */
 .letter-container {
