@@ -1,0 +1,169 @@
+/* بک‌گراند اصلی */
+html, body {
+  min-height: 100vh; margin: 0; padding: 0; overflow: hidden;
+  background: #0f2027 !important;
+  background: linear-gradient(-45deg, #050b14, #0f2027, #203a43, #152b36) !important;
+  background-size: 400% 400% !important;
+  animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.en-text { font-family: 'Poppins', sans-serif; }
+.persian-text { font-family: 'Vazirmatn', sans-serif; }
+
+/* افکت پلک انتقال صفحه */
+.eyelid {
+  position: fixed; left: 0; width: 100%; height: 0vh;
+  background: #020408 !important; z-index: 1050;
+  transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.eyelid.top { top: 0; }
+.eyelid.bottom { bottom: 0; }
+.eyelid.close { height: 50vh; }
+
+/* لودینگ */
+.intro { background: #050b14 !important; z-index: 1040; transition: opacity 1s ease; }
+.loading-text { color: #88d4d8; }
+.progress-bar-custom { width: 200px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+.progress-fill { width: 0%; height: 100%; background: #4ca1af; animation: loadBar 3s ease-in-out forwards; }
+@keyframes loadBar { 0% { width: 0%; } 100% { width: 100%; } }
+
+/* ==================================
+   پنل امنیتی خفن (سایبری)
+================================== */
+.login-box { max-width: 400px; width: 100%; transition: transform 0.3s; }
+.login-box.shake { animation: shake 0.4s; }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25%, 75% { transform: translateX(-10px); } 50% { transform: translateX(10px); } }
+
+.cyber-panel {
+  background: rgba(5, 12, 20, 0.85) !important;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(76, 161, 175, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(76, 161, 175, 0.1);
+  position: relative; overflow: hidden;
+}
+.cyber-panel::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+  background: linear-gradient(90deg, transparent, #88d4d8, transparent);
+  animation: scanline 2.5s linear infinite;
+}
+@keyframes scanline { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+
+/* === چشم های مشکی بالای فرم ورود === */
+.black-eye {
+  width: 45px; height: 25px;
+  background-color: #0b131a;
+  border-radius: 50%; position: relative;
+  box-shadow: inset 0 3px 5px rgba(0,0,0,1), 0 2px 5px rgba(136, 212, 216, 0.1);
+  animation: blinkBlackEyes 4s infinite;
+}
+.black-eye::after {
+  content: ''; position: absolute;
+  top: 4px; right: 8px; width: 8px; height: 8px;
+  background-color: #88d4d8; border-radius: 50%; opacity: 0.8;
+}
+@keyframes blinkBlackEyes { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+
+/* آیکون قفل متحرک */
+.cyber-lock { width: 55px; height: 55px; color: #88d4d8; filter: drop-shadow(0 0 10px rgba(136, 212, 216, 0.8)); animation: pulseGlow 2s infinite; }
+@keyframes pulseGlow { 0%, 100% { filter: drop-shadow(0 0 5px rgba(136, 212, 216, 0.5)); transform: scale(1); } 50% { filter: drop-shadow(0 0 20px rgba(136, 212, 216, 1)); transform: scale(1.05); } }
+
+/* مربع‌های ۴ تایی رمز */
+.pin-box {
+  width: 55px; height: 65px; font-size: 2rem; text-align: center;
+  background: rgba(255, 255, 255, 0.05) !important; border: 2px solid rgba(136, 212, 216, 0.3) !important;
+  color: #88d4d8 !important; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: all 0.3s ease;
+}
+.pin-box:focus { border-color: #88d4d8 !important; box-shadow: 0 0 15px rgba(136, 212, 216, 0.6), inset 0 0 10px rgba(136, 212, 216, 0.2) !important; transform: translateY(-3px); outline: none; }
+
+/* دکمه ورود سایبری */
+.cyber-btn { background: transparent !important; border: 2px solid #4ca1af !important; color: #88d4d8 !important; border-radius: 10px; letter-spacing: 1px; transition: all 0.3s; }
+.cyber-btn:hover { background: rgba(76, 161, 175, 0.2) !important; box-shadow: 0 0 20px rgba(76, 161, 175, 0.5); color: #fff !important; transform: translateY(-2px); }
+.tracking-wide { letter-spacing: 3px; }
+
+/* ==================================
+   پاکت نامه و ستاره ها
+================================== */
+.envelope-wrapper { position: relative; width: 320px; height: 210px; cursor: pointer; transition: transform 0.3s; margin-top: 50px; }
+.envelope-wrapper:hover { transform: translateY(-10px); }
+.envelope { position: absolute; width: 100%; height: 100%; background: #1a2a3a; border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+.flap { position: absolute; top: 0; left: 0; border-left: 160px solid transparent; border-right: 160px solid transparent; border-top: 115px solid #111e2b; z-index: 4; transform-origin: top; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+.front-bottom { position: absolute; bottom: 0; left: 0; border-left: 160px solid transparent; border-right: 160px solid transparent; border-bottom: 105px solid #23374d; z-index: 3; }
+.front-left { position: absolute; top: 0; left: 0; border-top: 105px solid transparent; border-bottom: 105px solid transparent; border-left: 160px solid #1d2d3e; z-index: 3; }
+.front-right { position: absolute; top: 0; right: 0; border-top: 105px solid transparent; border-bottom: 105px solid transparent; border-right: 160px solid #1d2d3e; z-index: 3; }
+.inner-paper { position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; background: #fdfdfd; z-index: 2; border-radius: 5px; transition: all 1.2s ease-in-out; }
+
+/* مهر وکس (طرح چشم) */
+.wax-seal {
+  position: absolute; top: 110px; left: 50%; transform: translate(-50%, -50%); z-index: 5;
+  width: 60px; height: 60px; background: radial-gradient(circle, #e6c27a, #b38b36); 
+  border-radius: 50%; border: 2px solid rgba(255,255,255,0.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6), 0 0 20px rgba(230, 194, 122, 0.4);
+  display: flex; justify-content: center; align-items: center; transition: all 0.5s;
+}
+.cute-eye { width: 35px; height: 35px; animation: blinkEye 4s infinite; }
+@keyframes blinkEye { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+
+.envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 1; }
+.envelope-wrapper.open .wax-seal { opacity: 0; transform: translate(-50%, -50%) scale(1.5); pointer-events: none; }
+.envelope-wrapper.open .inner-paper { transform: translateY(-150px); opacity: 0; }
+
+.magic-stars-container { position: absolute; top: 50%; left: 50%; width: 10px; height: 10px; z-index: 6; pointer-events: none; }
+.star {
+  position: absolute; width: 8px; height: 8px; background: #ffd700;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); opacity: 0;
+}
+@keyframes shootStar { 0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(360deg); opacity: 0; } }
+
+/* ==================================
+   کاغذ نامه شیشه‌ای روشن و راست‌چین
+================================== */
+.glass-panel-light {
+  background: rgba(245, 247, 250, 0.9) !important;
+  backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7); opacity: 0;
+  transform: scale(0.9); animation: popUpPaper 1s forwards;
+}
+@keyframes popUpPaper { to { transform: scale(1); opacity: 1; } }
+
+/* استایل گیف بوبو و دودو */
+.bubu-dudu-gif {
+  width: 130px;
+  margin-top: -70px; /* باعث میشه گیف نصفش بیرون از باکس باشه */
+  border-radius: 20px;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: #fff;
+  animation: floatEmoji 3s ease-in-out infinite;
+}
+
+.glass-panel-light .highlight { color: #2c5364; font-size: 1.6rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.text-black { color: #1a1a1a !important; }
+
+/* راست چین قطعی */
+.letter-container {
+  height: 45vh; min-height: 250px; overflow-y: auto;
+  padding: 15px; direction: rtl !important; text-align: right !important;
+  border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.letter-container::-webkit-scrollbar { width: 6px; }
+.letter-container::-webkit-scrollbar-track { background: transparent; }
+.letter-container::-webkit-scrollbar-thumb { background: rgba(44, 83, 100, 0.5); border-radius: 10px; }
+
+#text { direction: rtl !important; text-align: right !important; display: block; width: 100%; line-height: 2.2; font-size: 1.15rem; }
+
+.cursor { display: inline-block; width: 3px; background-color: #1a1a1a; animation: blinkCursor 0.7s infinite; }
+@keyframes blinkCursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.signature { animation: fadeIn 2s forwards; }
+.signature-name { color: #2c5364; }
+.date-text { color: #555; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-pulse { animation: pulseText 2s infinite; }
+@keyframes pulseText { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
